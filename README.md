@@ -192,6 +192,71 @@ axios.post('http://something.com/', querystring.stringify({ foo: 'bar' }));
 import axios from 'axios';
 axios.get('/user?ID=12345');
 
+{
+  url: '/user',
+  method: 'get', 
+  baseURL: 'https://some-domain.com/api/',
+  transformRequest: [function(data, headers){
+    return data;
+  }],
+  transformResponse: [function(data){
+    return data;
+  }],
+  headers: {'X-Requested-With': 'XMLHttpRequest'},
+  params: {
+    ID: 12345
+  },
+  paramsSerializer: function(params){
+    return Qs.stringify(params, {arrayFormt: 'brackets'})
+  },
+  data: {
+    fristName: 'Fred'
+  },
+  timeout: 1000,
+  withCredentials: false,
+  adapter: function(config){
+  },
+  auth: {
+    username: 'janedoe',
+    password: 's00000000'
+  },
+  responseType: 'json',
+  responseEncoding: 'utf8',
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+  onUploadProgress: function(progressEvent){
+  },
+  onDownloadProgress: function(progressEvent){
+  },
+  maxContentLength: 2000,
+  validateStatus: function(status){
+    return stauts >= 200 && status < 300;
+  },
+  maxRedirects: 5,
+  socketPath: null,
+  httpAgent: new http.Agent({ keepAlive: true }),
+  httpsAgent: new https.Agent({ keepAlive: true }),
+  proxy: {
+    host: '127.0.0.1',
+    port: 9000,
+    auth: {
+      username: 'mikeymike',
+      lastName: 'rapunz3l'
+    }
+  },
+  cancelToken: new CancelToken(funcito(cancel){
+  })
+}
+
+{
+  data: {},
+  status: 200,
+  statusText: 'OK',
+  headers: {},
+  config: {},
+  request: {}
+}
+
 ```
 
 ```
